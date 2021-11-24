@@ -1,9 +1,8 @@
-import React from 'react'
-
-const Header = () => {
+// deconstructed prop
+const Header = ({title}) => {
     return (
         <header>
-            <h1>Task App</h1>
+            <h1>{title}</h1>
         </header>
     )
 }

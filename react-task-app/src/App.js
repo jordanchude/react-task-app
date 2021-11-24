@@ -14,10 +14,17 @@ function App() {
       <h1>Hello {name}</h1>
       <h1>Hello {x ? 'Yes' : 'No'}</h1> */}
 
+      {/* Passing a static prop */}
+      {/* <Header title='Hello'/> */}
       
-      <Header />
+      <Header title='Hello'/>
     </div>
   );
+}
+
+// default prop if not provided for component
+Header.defaultProps = {
+  title: 'Task App'
 }
 
 export default App;
