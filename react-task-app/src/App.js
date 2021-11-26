@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 // JSX, NOT HTML
 function App() {
@@ -55,6 +56,7 @@ const toggleReminder = (id) => {
       {/* <Header title='Hello'/> */}
       
       <Header />
+      <AddTask />
       {/* if tasks is empty, show string */}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : (
         'No Tasks to Show'
