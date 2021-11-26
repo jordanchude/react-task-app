@@ -25,6 +25,10 @@ function App() {
     }
 ])
 
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id))
+}
+
   return (
     // div name can be semantic
     // can be empty if you don't want to signify it
@@ -38,7 +42,10 @@ function App() {
       {/* <Header title='Hello'/> */}
       
       <Header />
-      <Tasks tasks={tasks}/>
+      {/* if tasks is empty, show string */}
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask}/> : (
+        'No Tasks to Show'
+      )}
     </div>
   );
 }

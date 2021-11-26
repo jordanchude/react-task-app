@@ -14,3 +14,7 @@ Notes
 - Don't import information directly into components; useState
 - Can't push data to states because it's immutable
 - Pass data you want in all states in App.js and not the specific component itself
+- React icons allows you to use multiple icon librarys (npm install react-icons)
+- Icons are imported like components
+- High level functions (e.g. deleteTask) will be in app.js
+- State gets passed down, actions get passed up
