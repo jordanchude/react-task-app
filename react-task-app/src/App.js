@@ -11,6 +11,7 @@ function App() {
   // const x = false;
 
   // useState takes state and updates state with a function (i.e. 'setTasks')
+  const [showAddTask, setShowAddTask] = useState(true)
   const [tasks, setTasks] = useState([
     {
         id: 3,
@@ -63,8 +64,8 @@ const toggleReminder = (id) => {
       {/* Passing a static prop */}
       {/* <Header title='Hello'/> */}
       
-      <Header />
-      <AddTask onAdd={addTask}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
+      {showAddTask && <AddTask onAdd={addTask}/>}
       {/* if tasks is empty, show string */}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : (
         'No Tasks to Show'
