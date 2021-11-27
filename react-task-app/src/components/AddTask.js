@@ -2,13 +2,30 @@ import React from 'react'
 // import state because each component will have component-level state
 import { useState } from 'react'
 
-const AddTask = () => {
+const AddTask = ({onAdd}) => {
     const [text, setText] = useState('')
     const [day, setDay] = useState('')
     const [reminder, setReminder] = useState('false')
 
+    // prevent default submit behavior
+    // text validationfor input
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if(!text) {
+            alert('Please add a task')
+            return
+        } 
+
+        onAdd({text, day,reminder})
+
+        setText('')
+        setDay('')
+        setReminder(false)
+    }
+
     return (
-        <form className = 'add-form'>
+        <form className = 'add-form' onSubmit={onSubmit}>
             <div className='form-control'>
                 <label>Task</label>
                 <input type="text" 
@@ -28,7 +45,7 @@ const AddTask = () => {
 
             <div className='form-control form-control-check'>
                 <label>Reminder</label>
-                <input type="checkbox" value={reminder}
+                <input type="checkbox" checked={reminder} value={reminder}
                 onChange={(e) => setReminder(e.currentTarget.checked)}/>
             </div>
 

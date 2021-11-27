@@ -18,3 +18,4 @@ Notes
 - Icons are imported like components
 - High level functions (e.g. deleteTask) will be in app.js
 - State gets passed down, actions get passed up
+- Form submissions change state
