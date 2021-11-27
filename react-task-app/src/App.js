@@ -1,9 +1,12 @@
 // hook called useState and useEffect (i.e. wants something to happen when page loads)
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import About from './components/About'
 
 // JSX, NOT HTML
 function App() {
@@ -99,6 +102,7 @@ function App() {
       // div name can be semantic
       // can be empty if you don't want to signify it
       // can write dynamic javascript
+      <Router>
       <div className="container">
         {/* <h1>Hello From React</h1>
         <h1>Hello {name}</h1>
@@ -108,12 +112,25 @@ function App() {
         {/* <Header title='Hello'/> */}
         
         <Header onAdd={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
+
         {showAddTask && <AddTask onAdd={addTask}/>}
-        {/* if tasks is empty, show string */}
-        {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : (
-          'No Tasks to Show'
-        )}
+              {/* if tasks is empty, show string */}
+              {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : (
+                'No Tasks to Show'
+            )}
+
+        <Routes>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/' exact render={() => (
+            <>
+            
+            </>
+          )}/>
+        </Routes>
+
+        <Footer />
       </div>
+      </Router>
     );
 }
 
