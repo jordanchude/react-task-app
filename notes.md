@@ -19,3 +19,9 @@ Notes
 - High level functions (e.g. deleteTask) will be in app.js
 - State gets passed down, actions get passed up
 - Form submissions change state
+- 'npm run build' creates build server for deployment
+- 'npm  i -g serve' to  install static server
+- 'serve -s build -p 8000' -> static build server
+- 'npm i json server' to test example backend locally
+- create new script --> 'json-server --watch db.json --port 5000' 
+- set backend data as state
